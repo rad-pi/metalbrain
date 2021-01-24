@@ -36,8 +36,25 @@ This action is useful for storing all the data items present in the RDD in persi
 count()
 This action returns the total number of elements that exist in RDDs.
 
+------------------------------------------------------------
+Example #1:
+# rdd1
+rdd1 = sc.parallelize(range(6), 2)
 
-Examples:
+# Transforming the RDDs by applying a map() function
+rdd2 = rdd1.map(lambda x: x*2)
+
+# Collecting all the elements in the driver program
+rdd2.collect()
+
+# Filtering the elements based on a condition
+rdd3 = rdd2.filter(lambda x: x>4)
+
+# Collecting all the elements in the driver program
+rdd3.collect()
+
+------------------------------------------------------------
+Example #2:
 # Defining the lines RDD
 lines = sc.parallelize(["upGrad and IITM offer the course on Machine Learning and Cloud Computing.", "There is an entrance exam for the course.", "Good students are welcome to do this course."])
 
