@@ -22,6 +22,10 @@ Transforming base RDDs
 The limitation with the textFile() method is that the structure of the file must be in a
 (key,value)format in order to load the data directly in the form of paired RDDs.
 
+------------------------------------------------------------
+Other limitations of Spark RDD and how to overcome: https://data-flair.training/blogs/apache-spark-rdd-limitations/
+------------------------------------------------------------
+
 Another method of creating paired RDDs is to transform the base RDDs.
 The map() and flatMap() transformations can be used to convert the base RDD into a paired RDD.
 
