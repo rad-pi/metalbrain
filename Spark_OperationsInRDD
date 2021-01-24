@@ -122,3 +122,16 @@ Output:0
 avg = rdd1.mean()
 avg
 Output:2.5
+
+------------------------------------------------------------
+SUM method
+# RDD - rdd1
+rdd1 = sc.parallelize(range(6), 2)
+
+# Sum is commutative and associative function
+def sum(x, y):
+return(x+y)
+
+# Calculating the sum using reduce()
+rdd1.reduce(sum)
+https://images.upgrad.com/2087fafd-ba86-453f-9a72-a63b434b0e36-11.%20Reduce%20-%20Sum.jpg
