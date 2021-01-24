@@ -1,3 +1,7 @@
+The map() operation is one of the most useful transformations in Spark, as it helps mould the data into the required form before performing any functions.
+Moreover, it also helps provide a certain structure to the data stored in the RDDs. 
+Another such function is flatMap(). An important point that was covered in the previous segment is the  map() and flatMap() transformations.
+
 Some of the important transformations and actions available in Spark are as follows:
 
 map()
