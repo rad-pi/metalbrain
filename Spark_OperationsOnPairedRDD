@@ -24,3 +24,16 @@ The limitation with the textFile() method is that the structure of the file must
 
 Another method of creating paired RDDs is to transform the base RDDs.
 The map() and flatMap() transformations can be used to convert the base RDD into a paired RDD.
+
+reduceByKey()
+reduceByKey() transformation aggregates the values associated with a particular key based on the function provided.
+This is quite helpful in summarising the information stored in the RDDs.
+
+groupByKey()
+The groupByKey() transformation groups the values for each key in the RDD into a single sequence.
+This is different from the reduceByKey() operation, as you are provided with an aggregate value instead of a grouped entity.
+
+mapValues()
+mapValues() function to transform the values stored in a paired RDD.
+It works similar to the map() transformation in normal RDDs.
+It maps a specified function only to the values stored in the paired RDD.
