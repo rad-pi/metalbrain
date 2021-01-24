@@ -1,0 +1,58 @@
+Some of the important transformations and actions available in Spark are as follows:
+
+map()
+The map() transformation takes a function or a lambda expression as an argument, and this function is executed on each data item of the parent RDD.
+There is a one-to-one mapping between the elements of the source RDD and those of the resultant RDD.
+The return value of the function, when applied to each data item of the parent RDD, forms the data items of the resultant RDD.
+
+flatMap()
+The flatMap() transformation maps an element of the input RDD to one or more elements in the target RDD.
+Unlike the map()transformation, the lambda expression will return a collection of values for a single element in the input RDD.
+
+filter()
+The filter() transformation takes a function or a lambda expression that returns a boolean value as the argument.
+This boolean function is executed on each element of the source RDD.
+Only those elements that return 'true' when the lambda expression is executed on them find a place in the resultant RDD.
+
+
+
+Some of the common actions that are applied to a basic RDD are as follows:
+
+collect()
+This action collects all the data for a particular RDD distributed across partitions.
+The collected data is returned as an array to the Driver program.
+
+take()
+This action takes an integer parameter 'n' and returns a list of the first 'n' elements of the RDD to the Driver program.
+The take() action is more suitable than the collect() action as the former loads only a part of the dataset in the Driver program.
+
+saveAsTextFile()
+This action is useful for storing all the data items present in the RDD in persistent storage such as a local file system or HDFS.
+
+count()
+This action returns the total number of elements that exist in RDDs.
+
+
+Examples:
+# Defining the lines RDD
+lines = sc.parallelize(["upGrad and IITM offer the course on Machine Learning and Cloud Computing.", "There is an entrance exam for the course.", "Good students are welcome to do this course."])
+
+# Note: Remove the backslash in case of error
+
+
+# Splitting the lines into words using flatMap()
+words = lines.flatMap(lambda x: x.split(" "))
+
+# Counting the elements in RDDs
+lines.count()
+words.count()
+
+# Split using the map() transformation
+wordlines = lines.map(lambda x: x.split(" "))
+
+# Counting the elements in RDDs
+wordlines.count()
+
+# Collecting the RDDs in the driver program
+words.collect()
+wordlines.collect()
