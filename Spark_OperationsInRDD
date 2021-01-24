@@ -1,5 +1,5 @@
 The map() operation is one of the most useful transformations in Spark, as it helps mould the data into the required form before performing any functions.
-Moreover, it also helps provide a certain structure to the data stored in the RDDs. 
+Moreover, it also helps provide a certain structure to the data stored in the RDDs.
 Another such function is flatMap(). An important point that was covered in the previous segment is the  map() and flatMap() transformations.
 
 Some of the important transformations and actions available in Spark are as follows:
@@ -77,3 +77,46 @@ wordlines.count()
 # Collecting the RDDs in the driver program
 words.collect()
 wordlines.collect()
+
+------------------------------------------------------------
+join() and intersection()
+RDDs are a distributed set of elements on which you can implement all operations such as union(), join() and intersection()
+Actions can also help you obtain the max(), min() and mean() values from the numerical RDDs.
+
+CODE
+# Defining the lines RDD
+lines = sc.parallelize(["upGrad and IITM offer the course on Machine Learning and Cloud Computing.", "There is an entrance exam for the course.", "Good students are welcome to do this course."])
+
+# Defining the extralines RDD
+extralines = sc.parallelize(["Shiva is coordinator of the course from upGrad.", "Prof. Janakiram is the coordinator for the course from IIT Madras."])
+
+# Merging the elements of two RDDs using union()
+totallines = lines.union(extralines)
+
+# Taking an intersection of the two RDDs
+nulllines = lines.intersection(extralines)
+
+# Collecting the RDDs in the driver program
+totallines.collect()
+nulllines.collect()
+
+------------------------------------------------------------
+Max, Min and Avg
+# RDD - rdd1
+rdd1  = sc.parallelize(range(6), 2)
+Output: 0,1,2,3,4,5
+
+# maximum value
+max = rdd1.max()
+max
+Output:5
+
+# minimum value
+min = rdd1.min()
+min
+Output:0
+
+# mean value
+avg = rdd1.mean()
+avg
+Output:2.5
