@@ -124,7 +124,7 @@ avg
 Output:2.5
 
 ------------------------------------------------------------
-SUM method
+SUM Function
 # RDD - rdd1
 rdd1 = sc.parallelize(range(6), 2)
 
@@ -135,3 +135,19 @@ return(x+y)
 # Calculating the sum using reduce()
 rdd1.reduce(sum)
 https://images.upgrad.com/2087fafd-ba86-453f-9a72-a63b434b0e36-11.%20Reduce%20-%20Sum.jpg
+
+------------------------------------------------------------
+AVERAGE Function
+# Average is not commutative and associative function
+# Run the sImilar function and check the output
+def average(x, y):
+      return(x+y)/2.0
+
+# Remember if you don't provide a float value,  the output will be an integer
+# Therefore, use 2.0 instead of 2
+
+# Calculating the average using reduce()
+rdd1.reduce(average)
+
+# Correct average = 2.5
+https://images.upgrad.com/1c71911b-0a71-4a98-9bef-1129c0459fd9-10.%20Reduce%20-%20Avg.jpg
