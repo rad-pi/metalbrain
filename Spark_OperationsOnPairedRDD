@@ -1,0 +1,26 @@
+The reduceByKey() and groupByKey() transformations are two of the most important transformations that can be performed on paired RDDs.
+The groupByKey() transformation helps you group the values of similar keys together, whereas the reduceByKey() transformation helps you reduce the values of similar keys into a single value based on the lambda function provided.
+
+Create a paired RDD using the parallelize() function as the base RDDs.
+Code:
+# Defining the rdd
+rdd = sc.parallelize([("a", 3), ("b", 4), ("c", 2), ("d", 5)])
+
+# Collecting the elements on driver program
+rdd.collect()
+
+# Extracting the keys from the RDD
+rdd.keys().collect()
+
+# Extracting the values from the RDD
+rdd.values().collect()
+
+You can use also use the following methods to create paired RDDs:
+textFile() method
+Transforming base RDDs
+
+The limitation with the textFile() method is that the structure of the file must be in a
+(key,value)format in order to load the data directly in the form of paired RDDs.
+
+Another method of creating paired RDDs is to transform the base RDDs.
+The map() and flatMap() transformations can be used to convert the base RDD into a paired RDD.
